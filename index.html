@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <script>
+
+    function handleClick(obj) {
+      // console.log(obj.nextElementSibling.classList[0] == "answer-hide");
+      let answer = obj.nextElementSibling;
+      let icon = obj.lastElementChild.lastElementChild;
+      // console.log(icon);
+      if (answer.classList[0] == "answer-show") {
+        answer.classList.remove("answer-show");
+        answer.classList.add("answer-hide");
+
+        icon.classList.remove("rotated-icon");
+        icon.classList.add("icon");
+
+
+        obj.style.fontWeight = 400;
+
+
+      } else {
+        icon.classList.remove("icon");
+        icon.classList.add("rotated-icon");
+
+        answer.classList.remove("answer-hide");
+        answer.classList.add("answer-show");
+        obj.style.fontWeight = 700;
+      }
+
+      while (answer.parentElement.nextElementSibling != null) {
+        answer = answer.parentElement.nextElementSibling.firstElementChild.nextElementSibling;
+        icon = answer.previousElementSibling.lastElementChild.lastElementChild;
+        // console.log(icon)
+        // if (answer==null) break;
+        answer.classList.remove("answer-show");
+        answer.classList.add("answer-hide");
+
+        icon.classList.remove("rotated-icon");
+        icon.classList.add("icon");
+
+        // console.log(answer.parentElement);
+        answer.previousElementSibling.style.fontWeight = 400;
+
+      }
+
+      answer = obj.nextElementSibling;
+
+      while (answer.parentElement.previousElementSibling != null && answer.parentElement.previousElementSibling.classList[0] != 'faq') {
+        answer = answer.parentElement.previousElementSibling.firstElementChild.nextElementSibling;
+
+        icon = answer.previousElementSibling.lastElementChild.lastElementChild;
+        // console.log(icon)
+        // if (answer==null) break;
+        answer.classList.remove("answer-show");
+        answer.classList.add("answer-hide");
+
+        icon.classList.remove("rotated-icon");
+        icon.classList.add("icon");
+
+        // console.log(answer.parentElement);
+        answer.previousElementSibling.style.fontWeight = 400;
+
+      }
+
+
+
+
+
+    }
+
+  </script>
+</head>
+
+<body>
+  <div class="box-wraper">
+
+    <img src="/images/illustration-box-desktop.svg" alt="box" class="box">
+  </div>
+  <div class="container">
+    <section class="img-wraper">
+      <img src="/images/illustration-woman-online-desktop.svg" alt="woman" class="woman">
+      <img src="/images/bg-pattern-desktop.svg" alt="pattern" class="pattern">
+
+    </section>
+    <section class="question-wraper">
+
+      <strong class="faq">FAQ</strong>
+
+      <!-- question structure start -->
+      <div>
+        <div onclick="handleClick(this)">
+          <div class="question">How many team members can I invite?
+            <img src="/images/icon-arrow-down.svg" alt="icon" class="icon">
+          </div>
+        </div>
+        <p class="answer-hide">
+          You can invite up to 2 additional users on the Free plan. There is no limit on
+          team members for the Premium plan.
+        </p>
+        <div class="line"></div>
+
+      </div>
+      <!-- question structure end -->
+
+      <!-- question structure start -->
+      <div>
+        <div onclick="handleClick(this)">
+          <div class="question">What is the maximum file upload size?
+            <img src="/images/icon-arrow-down.svg" alt="icon" class="icon">
+          </div>
+        </div>
+        <p class="answer-hide">
+          No more than 2GB. All files in your account must fit your allotted storage space.
+        </p>
+        <div class="line"></div>
+
+      </div>
+      <!-- question structure end -->
+
+      <!-- question structure start -->
+      <div>
+        <div onclick="handleClick(this)">
+          <div class="question">How do I reset my password?
+            <img src="/images/icon-arrow-down.svg" alt="icon" class="icon">
+          </div>
+        </div>
+        <p class="answer-hide">
+          Click “Forgot password” from the login page or “Change password” from your profile page.
+          A reset link will be emailed to you.
+        </p>
+        <div class="line"></div>
+
+      </div>
+      <!-- question structure end -->
+
+      <!-- question structure start -->
+      <div>
+        <div onclick="handleClick(this)">
+          <div class="question">Can I cancel my subscription?
+            <img src="/images/icon-arrow-down.svg" alt="icon" class="icon">
+          </div>
+        </div>
+        <p class="answer-hide">
+          Yes! Send us a message and we’ll process your request no questions asked.
+        </p>
+        <div class="line"></div>
+
+      </div>
+      <!-- question structure end -->
+
+      <!-- question structure start -->
+      <div>
+        <div onclick="handleClick(this)">
+          <div class="question">Do you provide additional support?
+            <img src="/images/icon-arrow-down.svg" alt="icon" class="icon">
+          </div>
+        </div>
+        <p class="answer-hide">
+          Chat and email support is available 24/7. Phone lines are open during normal business hours.
+        </p>
+        <div class="line"></div>
+
+      </div>
+      <!-- question structure end -->
+
+    </section>
+
+  </div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="https://github.com/ThurzinRB">Arthur Bello</a>.
+  </div>
+</body>
+
+</html>
