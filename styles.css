@@ -257,7 +257,7 @@ body {
         width: 80vw;
         position: relative;
         top: -10vh;
-        content: url("/images/illustration-woman-online-mobile.svg");
+        content: url("images/illustration-woman-online-mobile.svg");
     }
     .pattern {
         position: absolute;
