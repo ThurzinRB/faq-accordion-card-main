@@ -16,7 +16,7 @@
 }
 
 body {
-    background: linear-gradient(var(--soft-blue), var(--soft-violet)) no-repeat;
+    background: linear-gradient(var(--soft-violet), var(--soft-blue)) no-repeat;
     min-height: 100vh;
     margin: 0;
     display: flex;
